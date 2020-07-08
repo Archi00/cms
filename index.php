@@ -172,3 +172,6 @@ include "includes/header.php";
         <!-- /.row -->
 
         <hr>
+
+
+<?php include "/includes/footer.php" ?>

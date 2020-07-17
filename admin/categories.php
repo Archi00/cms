@@ -20,8 +20,14 @@
                         </h1>
 
                         <!--Add category form-->
-                        <div class="col-xs-6">
-                          <form class="" action="index.html" method="post">
+                        <form class="" action="index.html" method="post">
+                          <div class="col-xs-6">
+
+                            <?php
+                                $query = "SELECT * FROM categories";
+                                $select_categories = mysqli_query($connection,$query);
+                            ?>
+
                             <div class="form-group">
                               <label for="cat_title"> Add Category </label>
                               <input class="form-control" type="text" name="cat_title">
@@ -29,9 +35,8 @@
                             <div class="form-group">
                               <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
                             </div>
-
-                          </form>
                         </div>
+                      </form>
                         <!--#Add category form-->
 
                       <div class="col-xs-6">
@@ -43,10 +48,18 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <?php
+                                    while($row = mysqli_fetch_assoc($select_categories)){
+                                          $cat_id = $row['cat_id'];
+                                          $cat_title = $row['cat_title'];
+                            ?>
                             <tr>
-                              <td>Test Category 1</td>
-                              <td>Test Category 2</td>
+                              <?php echo "<td> {$cat_id} </td>" ?>
+                              <?php echo "<td> {$cat_title} </td>" ?>
                             </tr>
+
+                          <?php } ?>
+
                           </tbody>
                         </table>
 

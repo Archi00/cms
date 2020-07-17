@@ -15,18 +15,45 @@
                     <div class="col-lg-12">
 
                         <h1 class="page-header">
-                            Blank Page
-                            <small>Subheading</small>
+                            Welcome to Admin
+                            <small>Archi00</small>
                         </h1>
 
                         <!--Add category form-->
-                        <form class="" action="index.html" method="post">
-                          <div class="col-xs-6">
+                        <div class="col-xs-6">
+                          <?php
 
-                            <?php
-                                $query = "SELECT * FROM categories";
-                                $select_categories = mysqli_query($connection,$query);
-                            ?>
+                              if(isset($_POST['submit'])) {
+
+                                $cat_title = $_POST['cat_title'];
+
+                                if($cat_title == "" || empty($cat_title)) {
+
+                                  die("This field should not be empty");
+                                  
+                                } else {
+
+                                    $query = "INSERT INTO categories(cat_title) ";
+                                    $query .= "VALUE('{$cat_title}') ";
+
+                                    $create_category_query = mysqli_query($connection, $query);
+
+                                    if(!$create_category_query) {
+
+                                      die("query failed!" . mysqli_error($connection));
+
+                                    }
+
+                                }
+
+                              }
+
+
+
+                           ?>
+
+
+                        <form class="" action="" method="post">
 
                             <div class="form-group">
                               <label for="cat_title"> Add Category </label>
@@ -35,11 +62,18 @@
                             <div class="form-group">
                               <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
                             </div>
-                        </div>
                       </form>
+                    </div>
                         <!--#Add category form-->
 
+                        <!--Show category data-->
                       <div class="col-xs-6">
+
+                        <?php
+                            $query = "SELECT * FROM categories";
+                            $select_categories = mysqli_query($connection,$query);
+                        ?>
+
                         <table class="table table-bordered table-hover">
                           <thead>
                             <tr>
@@ -53,18 +87,17 @@
                                           $cat_id = $row['cat_id'];
                                           $cat_title = $row['cat_title'];
                             ?>
-                            <tr>
-                              <?php echo "<td> {$cat_id} </td>" ?>
-                              <?php echo "<td> {$cat_title} </td>" ?>
-                            </tr>
+                              <tr>
+                                    <?php echo "<td> {$cat_id} </td>" ?>
+                                    <?php echo "<td> {$cat_title} </td>" ?>
+                              </tr>
 
-                          <?php } ?>
+                            <?php   } ?>
 
                           </tbody>
                         </table>
-
-
                       </div>
+                        <!--#Show category data-->
 
                       </div>
 

@@ -34,8 +34,8 @@
                           include "includes/add_post.php";
                           break;
 
-                          case '200';
-                          echo "NICE 200";
+                          case 'edit_post';
+                          include "includes/edit_post.php";
                           break;
 
                           case '300';
@@ -47,7 +47,6 @@
                           break;
 
                           default:
-
                           include "includes/view_all_posts.php";
                           break;
 

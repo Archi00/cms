@@ -39,7 +39,7 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span><?php echo $post_date; ?></p>
                 <hr>
-                <img class="img-responsive" src=<?php echo $post_image ?>>
+                <img class="img-responsive" src=<?php echo "images/{$post_image}"; ?>>
                 <hr>
                 <p><?php echo $post_comment; ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>

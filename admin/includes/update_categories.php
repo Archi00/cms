@@ -25,7 +25,7 @@
 
   <?php //update query
 
-    if(isset($_POST['Update_Category'])) {
+    if(isset($_POST['update_category'])) {
 
       $the_cat_title = $_POST['cat_title'];
 
@@ -44,6 +44,6 @@
 
     </div>
     <div class="form-group">
-      <input class="btn btn-primary" type="submit" name="Update_Category" value="Update Category">
+      <input class="btn btn-primary" type="submit" name="update_category" value="Update Category">
     </div>
 </form>

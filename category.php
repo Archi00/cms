@@ -31,7 +31,7 @@
                       $post_author = $row['post_author'];
                       $post_date = $row['post_date'];
                       $post_image = $row['post_image'];
-                      $post_comment = $row['post_comment'];
+                      $post_comment = substr($row['post_comment'], 0, 150);
                 ?>
 
                 <h1 class="page-header">

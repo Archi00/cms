@@ -13,7 +13,7 @@
             <div class="col-md-8">
 
                 <?php
-                  $query = "SELECT * FROM posts";
+                  $query = "SELECT * FROM posts ";
                   $select_all_posts = mysqli_query($connection,$query);
 
 
@@ -23,7 +23,11 @@
                       $post_author = $row['post_author'];
                       $post_date = $row['post_date'];
                       $post_image = $row['post_image'];
-                      $post_comment = $row['post_comment'];
+                      $post_comment = substr($row['post_comment'], 0, 150);
+                      $post_status = $row['post_status'];
+
+
+                      if($post_status == 'published') {
                 ?>
 
                 <h1 class="page-header">
@@ -47,7 +51,10 @@
 
                 <hr>
 
-              <?php } ?>
+              <?php
+                  }
+                }
+              ?>
 
               </div>
 
